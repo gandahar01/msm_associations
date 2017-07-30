@@ -7,7 +7,13 @@ class DirectorsController < ApplicationController
 
   def show
     @director = Director.find(params[:id])
+    
+    @movies = Movie.all
 
+    # @dis = Movie.distinct.count(:id => Movie.director_id )
+    # @dis = @movies.group_by(&:director_id).count
+    # @dis = @movies.find_by({ :id => Director.name }).count
+    
     render("directors/show.html.erb")
   end
 

@@ -1,3 +1,15 @@
+<style>
+  table {
+    border-collapse: collapse;
+    }
+  th, td {
+    border: 1px solid orange;
+    padding: 10px;
+    text-align: left;  
+    vertical-align: top;
+  }
+</style>
+
 <div class="page-header">
   <h3>Director #<%= @director.id %></h3>
 </div>
@@ -15,6 +27,12 @@
       <dd><%= @director.bio %></dd>
 
       <dt>Image url</dt>
+      <dd><%= @director.image_url %></dd>
+      
+      <dt>Number of movies</dt>
+      <dd><%= @director.image_url %></dd>
+      
+      <dt>Filmography</dt>
       <dd><%= @director.image_url %></dd>
 
     </dl>
