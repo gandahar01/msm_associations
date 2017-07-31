@@ -30,10 +30,40 @@
       <dd><%= @director.image_url %></dd>
       
       <dt>Number of movies</dt>
-      <dd><%= @director.image_url %></dd>
+      <dd><%= @dis %></dd>
       
       <dt>Filmography</dt>
-      <dd><%= @director.image_url %></dd>
+        <dd>
+          <ul class="list-group">
+ -        <% @director.movies.each do |zebra| %>
+ +        <% @director.movies.each do |movie| %>
+            <li class="list-group-item">
+ -            <%= zebra.title %> (<%= zebra.year %>)
+ +            <a href="/movies/<%= movie.id %>">
+ +              <%= movie.title %> (<%= movie.year %>)
+ +            </a>
+            </li>
+          <% end %>
+            <li class="list-group-item">
+             <form action="/create_movie" method="post">
+               <!-- Hidden input for authenticity token to protect from forgery -->
+               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+ 
+               <!-- Label and input for title -->
+               <div class="form-group">
+                 <label for="title" class="control-label">
+                   Title
+                 </label>
+                 <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @movie.title %>">
+               </div>
+ 
+               <!-- Label and input for year -->
+               <div class="form-group">
+                 <label for="year" class="control-label">
+                   Year
+                 </label>
+                 <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @movie.year %>">
+               </div></dd>
 
     </dl>
 
