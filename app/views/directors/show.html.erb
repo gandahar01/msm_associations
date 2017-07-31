@@ -35,13 +35,11 @@
       <dt>Filmography</dt>
         <dd>
           <ul class="list-group">
- -        <% @director.movies.each do |zebra| %>
- +        <% @director.movies.each do |movie| %>
+         <% @director.movies.each do |movie| %>
             <li class="list-group-item">
- -            <%= zebra.title %> (<%= zebra.year %>)
- +            <a href="/movies/<%= movie.id %>">
- +              <%= movie.title %> (<%= movie.year %>)
- +            </a>
+            <a href="/movies/<%= movie.id %>">
+               <%= movie.title %> (<%= movie.year %>)
+             </a>
             </li>
           <% end %>
             <li class="list-group-item">
