@@ -30,6 +30,9 @@
       <dt>Image url</dt>
       <dd><img src="<%= @actor.image_url %>" width="100"></dd>
       
+      <dt>Number of movies</dt>
+      <dd><%= @actor.movies.count %></dd>
+      
       <dt>Filmography</dt>
       <dd>
           <ul class="list-group">
@@ -42,6 +45,19 @@
             </li>
           <% end %>
           </ul>
+          <li class="list-group-item">
+             <form action="/create_character" method="post">
+               <!-- Hidden input for authenticity token to protect from forgery -->
+               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+ 
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @character.name %>">
+      </div>
        </dd>
 
     </dl>

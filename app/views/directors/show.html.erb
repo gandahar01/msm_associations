@@ -30,7 +30,7 @@
       <dd><%= @director.image_url %></dd>
       
       <dt>Number of movies</dt>
-     # <dd><%= @director.movies.count %></dd>
+      <dd><%= @director.movies.count %></dd>
       
       <dt>Filmography</dt>
         <dd>
@@ -62,8 +62,19 @@
                  </label>
                  <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @movie.year %>">
                </div>
-            </dd>
+               
+              <!-- Label and input for director_id -->
+              <input name="director_id" type="hidden" value="<%= @director.id %>">
 
+              <button class="btn btn-success">
+                Create Movie
+              </button>
+              or
+              <a href="/movies">Cancel</a>
+            </form>
+          </li>
+        </ul>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
