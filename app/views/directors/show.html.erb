@@ -30,18 +30,18 @@
       <dd><%= @director.image_url %></dd>
       
       <dt>Number of movies</dt>
-      <dd><%= @dis %></dd>
+     # <dd><%= @director.movies.count %></dd>
       
       <dt>Filmography</dt>
         <dd>
           <ul class="list-group">
-         <% @director.movies.each do |movie| %>
+           <% @director.movies.each do |movie| %>
             <li class="list-group-item">
-            <a href="/movies/<%= movie.id %>">
-               <%= movie.title %> (<%= movie.year %>)
-             </a>
+              <a href="/movies/<%= movie.id %>">
+              <%= movie.title %> (<%= movie.year %>)
+              </a>
             </li>
-          <% end %>
+        <% end %>
             <li class="list-group-item">
              <form action="/create_movie" method="post">
                <!-- Hidden input for authenticity token to protect from forgery -->
@@ -61,7 +61,8 @@
                    Year
                  </label>
                  <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @movie.year %>">
-               </div></dd>
+               </div>
+            </dd>
 
     </dl>
 
