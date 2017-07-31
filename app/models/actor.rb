@@ -10,6 +10,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
-class Actor < ApplicationRecord
-end
+class Actor < ActiveRecord::Base
+    validates :name, :presence => true, :uniqueness => { :scope => :dob }
+    has_many :characters
+    has_many :movies, :through => :characters
+  end

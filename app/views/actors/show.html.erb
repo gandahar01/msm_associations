@@ -9,6 +9,7 @@
     vertical-align: top;
   }
 </style>
+
 <div class="page-header">
   <h3>Actor #<%= @actor.id %></h3>
 </div>
@@ -21,12 +22,27 @@
 
       <dt>Dob</dt>
       <dd><%= @actor.dob %></dd>
-
+ 
       <dt>Bio</dt>
-      <dd><%= @actor.bio %></dd>
+      <dd><%= truncate(@actor.bio) %></dd>
+  
 
       <dt>Image url</dt>
-      <dd><%= @actor.image_url %></dd>
+      <dd><img src="<%= @actor.image_url %>" width="100"></dd>
+      
+      <dt>Filmography</dt>
+      <dd>
+          <ul class="list-group">
+                  <% @actor.characters.each do |character| %>
+                  <li class="list-group-item">
+                    <a href="/movies/<%= character.movie_id %>">
+               <%= character.movie.title %>
+             </a>
+           (<%= character.name %>)
+            </li>
+          <% end %>
+          </ul>
+       </dd>
 
     </dl>
 
